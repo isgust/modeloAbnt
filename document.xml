@@ -1,8 +1,28 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <pkg:package xmlns:pkg="http://schemas.microsoft.com/office/2006/xmlPackage">
-  <pkg:part pkg:name="/word/styles.xml">
+  
+  <!-- 1. RELACIONAMENTO DO PACOTE: Aponta para o documento principal -->
+  <pkg:part pkg:name="/_rels/.rels" pkg:contentType="application/vnd.openxmlformats-package.relationships+xml">
     <pkg:xmlData>
-      <w:styles>
+      <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+        <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="/word/document.xml" />
+      </Relationships>
+    </pkg:xmlData>
+  </pkg:part>
+
+  <!-- 2. RELACIONAMENTO DO DOCUMENTO: Vincula o arquivo de estilos ao documento principal -->
+  <pkg:part pkg:name="/word/_rels/document.xml.rels" pkg:contentType="application/vnd.openxmlformats-package.relationships+xml">
+    <pkg:xmlData>
+      <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+        <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml" />
+      </Relationships>
+    </pkg:xmlData>
+  </pkg:part>
+
+  <!-- 3. ESTILOS (Com a declaração de namespace xmlns:w) -->
+  <pkg:part pkg:name="/word/styles.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml">
+    <pkg:xmlData>
+      <w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:style w:type="paragraph" w:styleId="Normal">
           <w:name w:val="Normal"/>
           <w:rPr>
@@ -24,23 +44,32 @@
       </w:styles>
     </pkg:xmlData>
   </pkg:part>
-  <pkg:part pkg:name="/word/document.xml">
+
+  <!-- 4. DOCUMENTO PRINCIPAL (Com a declaração de namespace xmlns:w) -->
+  <pkg:part pkg:name="/word/document.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml">
     <pkg:xmlData>
-      <w:document>
+      <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:body>
           <w:p>
-            <w:pPr><w:pStyle w:val="Title"/></w:pPr>
-            <w:r><w:t>TÍTULO DO TRABALHO</w:t></w:r>
+            <w:pPr>
+              <w:pStyle w:val="Title"/>
+            </w:pPr>
+            <w:r>
+              <w:t>TÍTULO DO TRABALHO</w:t>
+            </w:r>
           </w:p>
           <w:p>
-            <w:r><w:t>Texto padrão do documento ABNT.</w:t></w:r>
+            <w:r>
+              <w:t>Texto padrão do documento ABNT.</w:t>
+            </w:r>
           </w:p>
           <w:sectPr>
-            <!-- 3cm Superior(1701), 3cm Esquerda(1701), 2cm Inferior(1134), 2cm Direita(1134) -->
+            <!-- Margens ABNT: 3cm Superior (1701 dxas), 3cm Esquerda (1701 dxas), 2cm Inferior (1134 dxas), 2cm Direita (1134 dxas) -->
             <w:pgMar w:top="1701" w:right="1134" w:bottom="1134" w:left="1701"/>
           </w:sectPr>
         </w:body>
       </w:document>
     </pkg:xmlData>
   </pkg:part>
+  
 </pkg:package>
