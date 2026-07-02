@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<pkg:package xmlns:pkg="http://schemas.microsoft.com/office/2006/xmlPackage">
+  <pkg:part pkg:name="/word/styles.xml">
+    <pkg:xmlData>
+      <w:styles>
+        <w:style w:type="paragraph" w:styleId="Normal">
+          <w:name w:val="Normal"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:style>
+        <w:style w:type="paragraph" w:styleId="Title">
+          <w:name w:val="Title"/>
+          <w:pPr>
+            <w:jc w:val="center"/>
+          </w:pPr>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+            <w:sz w:val="28"/>
+            <w:b/>
+          </w:rPr>
+        </w:style>
+      </w:styles>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/document.xml">
+    <pkg:xmlData>
+      <w:document>
+        <w:body>
+          <w:p>
+            <w:pPr><w:pStyle w:val="Title"/></w:pPr>
+            <w:r><w:t>TÍTULO DO TRABALHO</w:t></w:r>
+          </w:p>
+          <w:p>
+            <w:r><w:t>Texto padrão do documento ABNT.</w:t></w:r>
+          </w:p>
+          <w:sectPr>
+            <!-- 3cm Superior(1701), 3cm Esquerda(1701), 2cm Inferior(1134), 2cm Direita(1134) -->
+            <w:pgMar w:top="1701" w:right="1134" w:bottom="1134" w:left="1701"/>
+          </w:sectPr>
+        </w:body>
+      </w:document>
+    </pkg:xmlData>
+  </pkg:part>
+</pkg:package>
